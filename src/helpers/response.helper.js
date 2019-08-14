@@ -14,6 +14,15 @@ const returnError = function (event, error) {
   };
 }
 
+const returnSucess = function (body, statusCode = 200, headers = {}) {
+  return {
+    statusCode,
+    headers,
+    body: JSON.stringify(body)
+  };
+}
+
 module.exports = {
-  returnError
+  returnError,
+  returnSucess
 };
