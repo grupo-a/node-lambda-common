@@ -1,6 +1,6 @@
 const returnError = function (event, error) {
   console.error(error);
-  const code = error.businessStatusCode || 'avalia-search-500_internal-error-server';
+  const code = error.businessStatusCode || '500_internal-error-server';
 
   return {
     statusCode: error.httpStatusCode || 500,
