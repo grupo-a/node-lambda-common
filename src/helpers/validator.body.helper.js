@@ -24,7 +24,7 @@ const validateBody = (schema, body) => {
   const validatorInstance = new Validator();
   let validatorResult = validatorInstance.validate(body, schema);
 
-  if (validatorResult.errors)
+  if (validatorResult.errors.length > 0)
     buildResponseErrorMessage(validatorResult.errors);
 };
 
