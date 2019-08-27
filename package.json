@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/grupo-a/node-lambda-common/issues"
   },
-  "homepage": "https://github.com/grupo-a/node-lambda-common#readme"
+  "homepage": "https://github.com/grupo-a/node-lambda-common#readme",
+  "dependencies": {
+    "jsonschema": "^1.2.4"
+  }
 }

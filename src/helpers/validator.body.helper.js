@@ -1,3 +1,5 @@
+const Validator = require('jsonschema').Validator;
+
 const buildResponseErrorMessage = (errors) =>{
 
   let responseMessage = '';
