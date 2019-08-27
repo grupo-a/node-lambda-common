@@ -1,4 +1,5 @@
 const Validator = require('jsonschema').Validator;
+const CustomError = require('../model/CustomError');
 
 const buildResponseErrorMessage = (errors) =>{
 
@@ -16,7 +17,7 @@ const buildResponseErrorMessage = (errors) =>{
       responseMessage += ' || ';
     }
   }
-  throw new common.CustomError(responseMessage, 400, '400_bad-request-body');
+  throw new CustomError(responseMessage, 400, '400_bad-request-body');
 };
 
 const validateBody = (schema, body) => {
