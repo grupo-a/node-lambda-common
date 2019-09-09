@@ -4,7 +4,7 @@ const warnEnable  = process.env.LOG_WARN_ENABLE;
 
 const error = function(functionName, errorMessage, err){
     if (errorEnable)
-        console.error(`${functionName} - ERROR: ${errorMessage} `, err);
+        console.error(`${functionName} - ${errorMessage}`, err);
 }
 
 const info = function(functionName, message){
