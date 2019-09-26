@@ -23,11 +23,11 @@ const returnError = function (event, error) {
   const statusCode = error.httpStatusCode || 500;
   const headers = { };
 
-  return createResponse(body, statusCode, headers)
+  return createResponse(body, statusCode, headers);
 }
 
 const returnSucess = function (body, statusCode = 200, headers = {}) {
-  return createResponseJSON(body, statusCode, headers)
+  return createResponse(body, statusCode, headers);
 }
 
 module.exports = {
