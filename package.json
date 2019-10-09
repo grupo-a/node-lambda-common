@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "libs to support serverless development",
   "main": "./src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/grupo-a/node-lambda-common.git"
@@ -17,6 +14,8 @@
   },
   "homepage": "https://github.com/grupo-a/node-lambda-common#readme",
   "dependencies": {
-    "jsonschema": "^1.2.4"
+    "aws-xray-sdk": "^2.3.6",
+    "jsonschema": "^1.2.4",
+    "pg": "^7.12.1"
   }
 }
