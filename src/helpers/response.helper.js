@@ -2,6 +2,7 @@ const createResponse = (body, statusCode, headers) => {
   const mergeHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': true,
+    'Cache-Control': 'private, max-age=0, no-cache, no-store, must-revalidate',
     'Content-Type': 'application/json; charset=utf-8',
     ...headers, 
   };
