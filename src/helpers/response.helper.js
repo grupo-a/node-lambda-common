@@ -1,24 +1,33 @@
-const returnError = function (event, error) {
-  const code = error.businessStatusCode || '500_internal-error-server';
-
-  return {
-    statusCode: error.httpStatusCode || 500,
-    body: JSON.stringify({
-      error: {
-        code,
-        message: error.message
-      },
-      requestId: event.requestContext ?  event.requestContext.requestId : 'request-id-not-found'
-    })
+const createResponse = (body, statusCode, headers) => {
+  const mergeHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Content-Type': 'application/json; charset=utf-8',
+    ...headers, 
   };
+  return {
+    statusCode,
+    headers: mergeHeaders,
+    body: JSON.stringify(body)
+  };
+};
+
+const returnError = function (event, error) {
+  const body = {
+    error: {
+      code: error.businessStatusCode || '500_internal-error-server',
+      message: error.message
+    },
+    requestId: event.requestContext ?  event.requestContext.requestId : 'request-id-not-found'
+  };
+  const statusCode = error.httpStatusCode || 500;
+  const headers = { };
+
+  return createResponse(body, statusCode, headers);
 }
 
 const returnSucess = function (body, statusCode = 200, headers = {}) {
-  return {
-    statusCode,
-    headers,
-    body: JSON.stringify(body)
-  };
+  return createResponse(body, statusCode, headers);
 }
 
 module.exports = {
