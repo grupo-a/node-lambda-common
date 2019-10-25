@@ -14,15 +14,23 @@ const error = (functionName, errorMessage, err) => {
     }
 }
 
-const info = (functionName, message) => {
+const info = (functionName, message, detailsObject) => {
     if (infoEnable) {
-        console.info(`${functionName} - ${message}`);
+        if (detailsObject) {
+            console.info(`${functionName} - ${message}`, JSON.stringify(detailsObject));
+        } else {
+            console.info(`${functionName} - ${message}`);
+        }
     }
 }
 
-const warn = (functionName, message) => {
+const warn = (functionName, message, detailsObject) => {
     if (warnEnable) {
-        console.warn(`${functionName} - ${message}`);
+        if (detailsObject) {
+            console.warn(`${functionName} - ${message}`, JSON.stringify(detailsObject));
+        } else {
+            console.warn(`${functionName} - ${message}`);
+        }
     }
 }
 
