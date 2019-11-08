@@ -1,8 +1,7 @@
 const Validator = require('jsonschema').Validator;
 const CustomError = require('../model/CustomError');
 
-const buildResponseErrorMessage = (errors) =>{
-
+const _buildResponseErrorMessage = (errors) =>{
   let responseMessage = '';
   for (let i = 0; i < errors.length; i++) {
     const error = errors[i];
@@ -20,14 +19,26 @@ const buildResponseErrorMessage = (errors) =>{
   throw new CustomError(responseMessage, 400, '400_bad-request-body');
 };
 
-const validateBody = (schema, body) => {
+const _validate = (schema, jsonObject) => {
   const validatorInstance = new Validator();
-  let validatorResult = validatorInstance.validate(body, schema);
+  let validatorResult = validatorInstance.validate(jsonObject, schema);
 
-  if (validatorResult.errors.length > 0)
-    buildResponseErrorMessage(validatorResult.errors);
+  if (validatorResult.errors.length > 0) {
+    _buildResponseErrorMessage(validatorResult.errors);
+  }
+
+  return validatorResult.instance;
+};
+
+const validateBody = (schema, body) => {
+  return _validate(schema, JSON.parse(body));
+};
+
+const validateObject = (schema, jsonObject) => {
+  return _validate(schema, jsonObject);
 };
 
 module.exports = {
-  validateBody
+  validateBody,
+  validateObject
 };
