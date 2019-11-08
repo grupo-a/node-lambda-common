@@ -10,6 +10,8 @@
   "author": "Julio Coitinho Pinto <jcpinto@grupoa.com.br> (https://www.grupoa.com.br)",
   "license": "MIT",
   "dependencies": {
-    "jsonschema": "^1.2.4"
+    "aws-xray-sdk": "^2.3.6",
+    "jsonschema": "^1.2.4",
+    "pg": "^7.12.1"
   }
 }
