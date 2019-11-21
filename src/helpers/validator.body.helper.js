@@ -5,7 +5,6 @@ const _buildResponseErrorMessage = (errors) =>{
   let responseMessage = '';
   for (let i = 0; i < errors.length; i++) {
     const error = errors[i];
-    
     if(error.property == 'instance'){
       responseMessage += error.message.replace(/"/g,'');
     }else{
@@ -16,6 +15,7 @@ const _buildResponseErrorMessage = (errors) =>{
       responseMessage += ' || ';
     }
   }
+  responseMessage = responseMessage.replace(/\\\\b/g, '').replace(/\\\\/g, '');
   throw new CustomError(responseMessage, 400, '400_bad-request-body');
 };
 
