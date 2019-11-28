@@ -25,7 +25,7 @@ const info = (functionName, contexMessage, detailsObject) => {
                 detailsObject
             }));
         } else {
-            console.info(`${functionName} - ${message}`);
+            console.info(`${functionName} - ${contexMessage}`);
         }
     }
 }
@@ -39,7 +39,7 @@ const warn = (functionName, contexMessage, detailsObject) => {
                 detailsObject
             }));
         } else {
-            console.warn(`${functionName} - ${message}`);
+            console.warn(`${functionName} - ${contexMessage}`);
         }
     }
 }
